@@ -1,13 +1,18 @@
-<?php require "includes/header.php"; ?>
-
-
 <?php 
-require_once "config.php";
+require_once "config.php"; 
+require_once "includes/header.php"; 
+
+
 if (isset($_POST["submit"])) {
   if ($_POST["emial"]== '' || $_POST["username"] || $_POST["password"]=='') {
     echo "Some inputs are empty";
   }else {
-    # code...
+    $email = $_POST["email"];
+    $username = $_POST["username"];
+    $passwd = $_POST["password"];
+
+    $insert = $conn-prepare("INSERT INTO users(email, username, passwd) VALUES (:email, :username, :passwd)");
+    $insert->execute([":email"=>$email, ":username"=>$username, ":passwd"=>password_hash($passwd,PASSWORD_DEFAULT)]);
   }
 }
 
