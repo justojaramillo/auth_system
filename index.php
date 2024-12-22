@@ -1,4 +1,10 @@
-<?php require_once "includes/header.php"; ?>
+<?php 
 
-hello from index
-<?php require_once "includes/footer.php"; ?>
+require_once "includes/header.php";
+
+$wellcome = $_SESSION["username"]??"from index";
+
+echo "hello $wellcome";
+
+require_once "includes/footer.php"; 
+?>
