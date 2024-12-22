@@ -3,14 +3,27 @@ require_once "config.php";
 require_once "includes/header.php"; 
 
 if (isset($_POST["submit"])) {
+  
   if ($_POST["email"]=='' OR $_POST["password"]=='') {
     echo "Some inputs are empty";
   } else {
     $email = $_POST["email"];
     $passwd = $_POST["password"];
 
-    $login = $conn->query("SELECT * FROM users WHERE email= :email");
-    $login->execute([":email"=>$email]);
+    $login = $conn->query("SELECT * FROM users WHERE email='$email'");
+    $login->execute();
+    $data = $login->fetch(PDO::FETCH_ASSOC);
+
+    if ($login->rowCount()>0) {
+      if (password_verify($passwd,$data["passwd"])) {
+        echo "Logged in";
+      }else{
+        echo "Email or Password is wrong.";
+      }
+    }else{
+      echo "Email or Password is wrong.";
+    }
+
   }
   
 }
@@ -19,7 +32,7 @@ if (isset($_POST["submit"])) {
 ?>
 
 <main class="form-signin w-50 m-auto">
-  <form>
+  <form method="post" action="login.php">
     <!-- <img class="mb-4 text-center" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
     <h1 class="h3 mt-5 fw-normal text-center">Please log in</h1>
 
