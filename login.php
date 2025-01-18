@@ -36,9 +36,7 @@ if (isset($_POST["submit"])) {
 ?>
 <?php require_once "includes/header.php"; ?>
 
-<?php 
-
-echo '<main class="form-signin w-50 m-auto">
+<main class="form-signin w-50 m-auto">
   <form method="post" action="login.php">
     <h1 class="h3 mt-5 fw-normal text-center">Please log in</h1>
     <div class="form-floating">
@@ -50,10 +48,8 @@ echo '<main class="form-signin w-50 m-auto">
       <label for="floatingPassword">Password</label>
     </div>
     <button name="submit" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <h6 class="mt-3">Don\'t have an account  <a href="register.php">Create your account</a></h6>
+    <h6 class="mt-3">Don't have an account  <a href="register.php">Create your account</a></h6>
   </form>
-</main>';
-
-?>
+</main>
 
 <?php require "includes/footer.php"; ?>

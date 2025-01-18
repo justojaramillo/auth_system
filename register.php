@@ -18,9 +18,10 @@ if (isset($_POST["submit"])) {
     $insert->execute([":email"=>$email, ":username"=>$username, ":passwd"=>password_hash($passwd,PASSWORD_DEFAULT)]);
   }
 }
+?>
 
 
-echo '<main class="form-signin w-50 m-auto">
+<main class="form-signin w-50 m-auto">
   <form method="POST" action="register.php">
    
     <h1 class="h3 mt-5 fw-normal text-center">Please Register</h1>
@@ -44,10 +45,7 @@ echo '<main class="form-signin w-50 m-auto">
     <h6 class="mt-3">Aleardy have an account?  <a href="login.php">Login</a></h6>
 
   </form>
-</main>';
-
-?>
-
+</main>
 
 
 <?php require "includes/footer.php"; ?>
