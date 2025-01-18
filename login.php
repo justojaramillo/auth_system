@@ -1,6 +1,5 @@
 <?php
 require_once "config.php"; 
-require_once "includes/header.php";
 
 if (isset($_SESSION["username"])) {
   header("location: index.php");
@@ -34,9 +33,8 @@ if (isset($_POST["submit"])) {
   
 }
 
-
 ?>
-
+<?php require_once "includes/header.php"; ?>
 <main class="form-signin w-50 m-auto">
   <form method="post" action="login.php">
     <!-- <img class="mb-4 text-center" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
@@ -59,4 +57,5 @@ if (isset($_POST["submit"])) {
     <h6 class="mt-3">Don't have an account  <a href="register.php">Create your account</a></h6>
   </form>
 </main>
+
 <?php require "includes/footer.php"; ?>
