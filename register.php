@@ -1,6 +1,6 @@
-<?php 
+<?php
+
 require_once "config.php"; 
-require_once "includes/header.php"; 
 
 if (isset($_SESSION["username"])) {
   header("location: index.php");
@@ -18,6 +18,10 @@ if (isset($_POST["submit"])) {
     $insert->execute([":email"=>$email, ":username"=>$username, ":passwd"=>password_hash($passwd,PASSWORD_DEFAULT)]);
   }
 }
+
+
+
+require_once "includes/header.php"; 
 ?>
 
 
