@@ -1,12 +1,13 @@
 <?php
 session_start();
+require_once("html.php");
 
 ?>
 
 
-<!doctype html>
+<?php html::doctype(); ?>
 <html lang="en">
-  <head>
+  <?php html::head(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -16,7 +17,7 @@ session_start();
     <title>Carousel Template · Bootstrap v5.2</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css " rel="stylesheet">
-  </head>
+  <?php html::head(false); ?>
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container">
